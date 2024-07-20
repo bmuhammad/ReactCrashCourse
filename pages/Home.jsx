@@ -9,14 +9,20 @@ function Home() {
       "https://jsonplaceholder.typicode.com/users"
     );
     setUsers(data);
+    console.log(data);
   }
 
   useEffect(() => {
-    fetchUsers();
+    setTimeout(() => {
+
+        fetchUsers();
+
+    }, 500);
+
   }, []);
   return (
     <div>
-      <h1>{users[0]?.name}</h1>
+      {users.length > 0 ? <h1>{users[0]?.name}</h1> : <h1>Loading...</h1>}
     </div>
   );
 }
